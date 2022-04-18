@@ -18,12 +18,12 @@ origin_data_path = "dataset/ground_truth/"
 NoisyFiles = os.listdir(noisy_data_path)
 OriginFiles = os.listdir(origin_data_path)
 NoisyFiles_len = len(NoisyFiles)
-device = "cuda:1"
+device = "cuda:0"
 lr = 0.0001
 loss1 = nn.L1Loss()
 loss2 = nn.MSELoss()
 epochs = 200
-
+model_path = "CBD-25.pth"
 
 def read_image(input_path):
     raw = rawpy.imread(input_path)
@@ -53,7 +53,8 @@ def pre(input_path):
 
 
 if __name__ == "__main__":
-    net = UNet()
+    net = UNet().to(device)
+    net.load_state_dict(torch.load(model_path))
     optimizer = torch.optim.Adam(net.parameters(), lr=lr)
     net.to(device)
 
@@ -74,7 +75,7 @@ if __name__ == "__main__":
             optimizer.step()
 
             running_loss += l.item()
-            print("Epoch{}\tloss {}".format(epoch, running_loss / NoisyFiles_len), end="")
+        print("Epoch{}\tloss {}".format(epoch, running_loss / NoisyFiles_len))
 
         print()
         torch.save(net.state_dict(), 'models/CBD-' + str(epoch) + '.pth')

@@ -9,7 +9,8 @@ testset/
 /testset
 dataset/
 /dataset
-
+models/
+/models
 *.idea
 *.xml
 # Distribution / packaging
