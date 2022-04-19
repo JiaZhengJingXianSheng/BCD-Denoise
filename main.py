@@ -20,11 +20,11 @@ NoisyFiles = os.listdir(noisy_data_path)
 OriginFiles = os.listdir(origin_data_path)
 NoisyFiles_len = len(NoisyFiles)
 device = "cuda:0"
-lr = 0.00005
+lr = 0.0000001
 loss1 = nn.L1Loss()
 loss2 = nn.MSELoss()
 epochs = 1000
-model_path = "CBD-175.pth"
+model_path = "CBD-880.pth"
 white_level = 16383
 black_level = 1024
 # def read_image(input_path):
