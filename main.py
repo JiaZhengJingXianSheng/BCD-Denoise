@@ -7,7 +7,7 @@
 '''
 import os
 import pytorch_ssim
-from CBDNet import UNet
+from BCDNet import UNet
 from tqdm import tqdm
 from torch import nn
 import torch
@@ -22,7 +22,7 @@ device = "cuda:0"
 lr = 0.000001
 
 epochs = 1000
-model_path = "CBD-880.pth"
+model_path = "BCD-Model.pth"
 white_level = 16383
 black_level = 1024
 

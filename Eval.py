@@ -11,13 +11,13 @@ import rawpy
 import numpy as np
 import torch
 
-from CBDNet import UNet
+from BCDNet import UNet
 from matplotlib import pyplot as plt
 import skimage
 noisy_path = "dataset/noisy/0_noise.dng"
 gt_path = "dataset/ground_truth/0_gt.dng"
 output_path = "tem/0_noise.dng"
-model_path = "CBD-L1-1290.pth"
+model_path = "BCD-Model.pth"
 
 # device = "cuda:0"
 device = "cpu"

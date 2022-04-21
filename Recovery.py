@@ -10,11 +10,11 @@ import os
 import rawpy
 import numpy as np
 import torch
-from CBDNet import UNet
+from BCDNet import UNet
 
 input_path = "testset"
 save_path = "result/denoise"
-model_path = "CBD-Model.pth"
+model_path = "BCD-Model.pth"
 # device = "cuda:0"
 device = "cpu"
 
